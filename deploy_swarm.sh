@@ -9,5 +9,5 @@ else
   echo "Docker Swarm is active"
 fi
 
-docker stack deploy -c docker-compose.yml python_cluster
+docker stack deploy -c docker-compose.python-cluster.yml python_cluster
 docker service ls
