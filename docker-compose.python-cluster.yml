@@ -8,4 +8,4 @@ services:
     volumes:
       - ./app:/app
     working_dir: /app
-    command: python app.py
+    command: tail -f /dev/null 
