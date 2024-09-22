@@ -3,12 +3,15 @@ package main
 import (
 	"log"
 	"net/http"
-	"okapi-api/handler"
+	"okapi-api/router"
 )
 
 func main() {
-	http.HandleFunc("/containers", handler.GetDockerContainers)
+	r := router.InitRoutes()
+    port := ":8080"
 
-	log.Println("API is running on port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Printf("API is running on port %s", port)
+    if err := http.ListenAndServe(port, r); err != nil {
+		log.Fatalf("API fail to start : %v", err)
+	}
 }
